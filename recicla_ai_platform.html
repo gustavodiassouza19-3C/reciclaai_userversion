@@ -764,15 +764,11 @@ button, input, select { font: inherit; }
               </tr>
             </thead>
             <tbody id="history-body">
-              <tr>
-                <td style="color:var(--color-text-secondary)">15/06</td>
-                <td style="color:var(--color-text-secondary)">Coop. Verde</td>
-                <td style="color:#1D9E75;font-weight:500">+40</td>
-              </tr>
+          
               <tr>
                 <td style="color:var(--color-text-secondary)">14/06</td>
                 <td style="color:var(--color-text-secondary)">EcoPonto Central</td>
-                <td style="color:#1D9E75;font-weight:500">+21</td>
+                <td style="color:#391d9e;font-weight:500">+21</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">12/06</td>
@@ -872,18 +868,7 @@ const titles = {
   banca: 'Avaliação de banca'
 };
 const STORAGE_KEY = 'recicla_ai_platform_backend_v2';
-const materialMeta = {
-  'Alumínio': { points: 50, unit: 'kg', icon: 'ti ti-can', color: '#1D9E75', bg: '#E1F5EE' },
-  'Plástico': { points: 20, unit: 'kg', icon: 'ti ti-bottle', color: '#185FA5', bg: '#E6F1FB' },
-  'Papelão': { points: 10, unit: 'kg', icon: 'ti ti-package', color: '#BA7517', bg: '#FAEEDA' },
-  'Papel': { points: 10, unit: 'kg', icon: 'ti ti-news', color: '#3B6D11', bg: '#EAF3DE' },
-  'Vidro': { points: 8, unit: 'kg', icon: 'ti ti-glass-full', color: '#0C447C', bg: '#E6F1FB' },
-  'Aço': { points: 15, unit: 'kg', icon: 'ti ti-nut', color: '#444441', bg: '#F1EFE8' },
-  'Eletrônicos': { points: 80, unit: 'kg', icon: 'ti ti-device-mobile', color: '#534AB7', bg: '#EEEDFE' },
-  'Pilhas': { points: 25, unit: 'un', icon: 'ti ti-battery', color: '#791F1F', bg: '#FCEBEB' },
-  'Óleo': { points: 30, unit: 'L', icon: 'ti ti-droplet', color: '#633806', bg: '#FAEEDA' },
-  'Outros': { points: 10, unit: 'kg', icon: 'ti ti-recycle', color: '#58645F', bg: '#F5F7F4' }
-};
+
 const defaultState = {
   version: 2,
   baselineKg: 3,
