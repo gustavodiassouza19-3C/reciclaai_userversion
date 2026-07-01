@@ -284,15 +284,7 @@ button, input, select { font: inherit; }
       <div class="nav-section">Conta</div>
       <div class="nav-item" onclick="showScreen('historico', this)"><i class="ti ti-history" aria-hidden="true"></i> Histórico</div>
       <div class="nav-item" onclick="showScreen('notif', this)"><i class="ti ti-bell" aria-hidden="true"></i> Notificações</div>
-      <div class="nav-section">Operação</div>
-      <div class="nav-item" onclick="showScreen('empresas', this)"><i class="ti ti-building-store" aria-hidden="true"></i> Empresas</div>
-      <div class="nav-item" onclick="showScreen('cooperativas', this)"><i class="ti ti-recycle" aria-hidden="true"></i> Cooperativas</div>
-      <div class="nav-item" onclick="showScreen('prefeituras', this)"><i class="ti ti-building-bank" aria-hidden="true"></i> Prefeituras</div>
-      <div class="nav-section">Plataforma</div>
-      <div class="nav-item" onclick="showScreen('dados', this)"><i class="ti ti-database" aria-hidden="true"></i> Dados e IA</div>
-      <div class="nav-item" onclick="showScreen('backend', this)"><i class="ti ti-code-dots" aria-hidden="true"></i> Back-end Local</div>
-      <div class="nav-item" onclick="showScreen('arquitetura', this)"><i class="ti ti-server" aria-hidden="true"></i> Arquitetura</div>
-      <div class="nav-item" onclick="showScreen('banca', this)"><i class="ti ti-school" aria-hidden="true"></i> Banca</div>
+
     </div>
     <div class="sidebar-footer">
       <div class="user-pill">
@@ -356,25 +348,15 @@ button, input, select { font: inherit; }
             <div class="flow-step"><div class="flow-num">02</div><div class="flow-label">Usuário localiza ponto parceiro.</div></div>
             <div class="flow-step"><div class="flow-num">03</div><div class="flow-label">Resíduo é depositado e identificado.</div></div>
             <div class="flow-step"><div class="flow-num">04</div><div class="flow-label">Sistema registra data, hora e local.</div></div>
-            <div class="flow-step"><div class="flow-num">05</div><div class="flow-label">Material, peso e quantidade são validados.</div></div>
-            <div class="flow-step"><div class="flow-num">06</div><div class="flow-label">Coletor e estação ficam vinculados.</div></div>
-            <div class="flow-step"><div class="flow-num">07</div><div class="flow-label">Pontos são calculados automaticamente.</div></div>
-            <div class="flow-step"><div class="flow-num">08</div><div class="flow-label">Saldo entra na carteira digital.</div></div>
-            <div class="flow-step"><div class="flow-num">09</div><div class="flow-label">Pontos viram benefícios e relatórios.</div></div>
+            <div class="flow-step"><div class="flow-num">05</div><div class="flow-label">Coletor e estação ficam vinculados.</div></div>
+            <div class="flow-step"><div class="flow-num">06</div><div class="flow-label">Pontos são calculados automaticamente.</div></div>
+            <div class="flow-step"><div class="flow-num">07</div><div class="flow-label">Saldo entra na carteira digital.</div></div>
+            <div class="flow-step"><div class="flow-num">08</div><div class="flow-label">Pontos viram benefícios e relatórios.</div></div>
           </div>
         </div>
 
         <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-calculator" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Pontuação por resíduo</div>
-            <div class="section-note">Pontos = peso x valor do material x fator sustentável.</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Alumínio</div><div class="list-sub">1 kg gera 50 pontos</div></div><span class="status-chip ok">50 pts/kg</span></div>
-              <div class="list-row"><div><div class="list-main">Plástico</div><div class="list-sub">Garrafas, embalagens e similares</div></div><span class="status-chip info">20 pts/kg</span></div>
-              <div class="list-row"><div><div class="list-main">Papel e papelão</div><div class="list-sub">Separados por categoria operacional</div></div><span class="status-chip warn">10 pts/kg</span></div>
-              <div class="list-row"><div><div class="list-main">Vidro, aço, eletrônicos, pilhas, baterias e óleo</div><div class="list-sub">Aceitos conforme autorização da estação.</div></div><span class="status-chip ok">variável</span></div>
-            </div>
-          </div>
+         
           <div class="card">
             <div class="card-title"><i class="ti ti-id-badge-2" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Identificação e validação</div>
             <div class="pill-row" style="margin-top:0;margin-bottom:12px">
@@ -452,11 +434,7 @@ button, input, select { font: inherit; }
             <div class="stat-value stat-green" id="stat-points">1.240</div>
             <div class="stat-sub" id="stat-points-sub">+180 esta semana</div>
           </div>
-          <div class="stat-card">
-            <div class="stat-label"><i class="ti ti-recycle" style="font-size:14px;color:#1D9E75" aria-hidden="true"></i> Kg reciclados</div>
-            <div class="stat-value" id="stat-kg">12,4 kg</div>
-            <div class="stat-sub">Total acumulado</div>
-          </div>
+       
           <div class="stat-card">
             <div class="stat-label"><i class="ti ti-trophy" style="font-size:14px;color:#BA7517" aria-hidden="true"></i> Ranking</div>
             <div class="stat-value" id="stat-ranking">#14</div>
@@ -480,17 +458,7 @@ button, input, select { font: inherit; }
             </div>
             <canvas class="chart-canvas" id="points-chart" width="720" height="250" aria-label="Gráfico de evolução de pontos"></canvas>
           </div>
-          <div class="chart-card">
-            <div class="chart-head">
-              <div>
-                <div class="chart-title"><i class="ti ti-chart-donut" style="color:#185FA5" aria-hidden="true"></i> Materiais reciclados</div>
-                <div class="chart-caption">Distribuição por peso acumulado</div>
-              </div>
-              <span class="status-chip info">kg</span>
-            </div>
-            <canvas class="chart-canvas" id="material-chart" width="420" height="250" aria-label="Gráfico de materiais reciclados"></canvas>
-            <div class="chart-legend" id="material-legend"></div>
-          </div>
+        
         </div>
 
         <div class="insight-strip">
@@ -509,43 +477,7 @@ button, input, select { font: inherit; }
         </div>
 
         <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-history" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Últimas coletas</div>
-            <div id="recent-collections">
-            <div class="coleta-item">
-              <div class="coleta-icon" style="background:#E1F5EE">♻️</div>
-              <div class="coleta-info">
-                <div class="coleta-name">Alumínio — 0,8 kg</div>
-                <div class="coleta-meta">Hoje, 09:42 · Coleta Verde Umuarama</div>
-              </div>
-              <div class="coleta-pts">+40 pts</div>
-            </div>
-            <div class="coleta-item">
-              <div class="coleta-icon" style="background:#E6F1FB">📦</div>
-              <div class="coleta-info">
-                <div class="coleta-name">Papelão — 2,1 kg</div>
-                <div class="coleta-meta">Ontem, 14:15 · EcoPonto Central</div>
-              </div>
-              <div class="coleta-pts">+21 pts</div>
-            </div>
-            <div class="coleta-item">
-              <div class="coleta-icon" style="background:#EEEDFE">🧴</div>
-              <div class="coleta-info">
-                <div class="coleta-name">Plástico — 1,5 kg</div>
-                <div class="coleta-meta">12/06, 11:00 · Cooperativa Norte</div>
-              </div>
-              <div class="coleta-pts">+30 pts</div>
-            </div>
-            <div class="coleta-item">
-              <div class="coleta-icon" style="background:#FAEEDA">🔋</div>
-              <div class="coleta-info">
-                <div class="coleta-name">Pilhas e baterias</div>
-                <div class="coleta-meta">10/06, 08:30 · Farmácia Parceira</div>
-              </div>
-              <div class="coleta-pts">+25 pts</div>
-            </div>
-            </div>
-          </div>
+        
           <div class="card">
             <div class="card-title"><i class="ti ti-trophy" style="font-size:16px;color:#BA7517" aria-hidden="true"></i> Ranking da cidade</div>
             <div class="rank-item">
@@ -671,13 +603,13 @@ button, input, select { font: inherit; }
             <div class="card-title" style="font-size: 12px; color: var(--color-text-tertiary);"><i class="ti ti-database" aria-hidden="true"></i> Simulação do Banco SQL (Lacres disponíveis)</div>
             <div class="compact-list">
               <div class="list-row" style="cursor: pointer; transition: background 0.2s; padding: 8px;" onclick="preencherLacre('LCR-8A4F')" onmouseover="this.style.background='var(--color-background-secondary)'" onmouseout="this.style.background='transparent'">
-                <div><div class="list-main" style="font-family: monospace;">LCR-8A4F</div><div class="list-sub">Plástico · 1,5 kg</div></div><span class="status-chip info">Testar</span>
+                <div><div class="list-main" style="font-family: monospace;">LCR-8A4F</div><div class="list-sub">Código 1 (30 pontos)</div></div><span class="status-chip info">Testar</span>
               </div>
               <div class="list-row" style="cursor: pointer; transition: background 0.2s; padding: 8px;" onclick="preencherLacre('LCR-9B2D')" onmouseover="this.style.background='var(--color-background-secondary)'" onmouseout="this.style.background='transparent'">
-                <div><div class="list-main" style="font-family: monospace;">LCR-9B2D</div><div class="list-sub">Alumínio · 0,8 kg</div></div><span class="status-chip info">Testar</span>
+                <div><div class="list-main" style="font-family: monospace;">LCR-9B2D</div><div class="list-sub">Código 2 (40 pontos)</div></div><span class="status-chip info">Testar</span>
               </div>
               <div class="list-row" style="cursor: pointer; transition: background 0.2s; padding: 8px;" onclick="preencherLacre('LCR-3C7X')" onmouseover="this.style.background='var(--color-background-secondary)'" onmouseout="this.style.background='transparent'">
-                <div><div class="list-main" style="font-family: monospace;">LCR-3C7X</div><div class="list-sub">Eletrônicos · 2,0 kg</div></div><span class="status-chip info">Testar</span>
+                <div><div class="list-main" style="font-family: monospace;">LCR-3C7X</div><div class="list-sub">Código 3 (160 pontos)</div></div><span class="status-chip info">Testar</span>
               </div>
             </div>
           </div>
@@ -816,27 +748,7 @@ button, input, select { font: inherit; }
             <div class="stat-sub">registros totais</div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-title"><i class="ti ti-trending-up" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Pontos por material</div>
-          <div id="material-points-list" style="display:flex;flex-direction:column;gap:10px">
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span style="color:var(--color-text-secondary)">♻️ Alumínio</span><span style="color:var(--color-text-primary);font-weight:500">620 pts</span></div>
-              <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:82%"></div></div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span style="color:var(--color-text-secondary)">🧴 Plástico</span><span style="color:var(--color-text-primary);font-weight:500">340 pts</span></div>
-              <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:45%;background:#185FA5"></div></div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span style="color:var(--color-text-secondary)">📦 Papelão</span><span style="color:var(--color-text-primary);font-weight:500">210 pts</span></div>
-              <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:28%;background:#BA7517"></div></div>
-            </div>
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span style="color:var(--color-text-secondary)">📱 Eletrônicos</span><span style="color:var(--color-text-primary);font-weight:500">70 pts</span></div>
-              <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:9%;background:#534AB7"></div></div>
-            </div>
-          </div>
-        </div>
+      >
       </div>
 
       <!-- HISTÓRICO -->
@@ -847,53 +759,39 @@ button, input, select { font: inherit; }
             <thead>
               <tr>
                 <th>Data</th>
-                <th>Material</th>
                 <th>Local</th>
-                <th>Peso</th>
                 <th>Pontos</th>
               </tr>
             </thead>
             <tbody id="history-body">
               <tr>
                 <td style="color:var(--color-text-secondary)">15/06</td>
-                <td><span class="type-badge" style="background:#E1F5EE;color:#0F6E56">♻️ Alumínio</span></td>
                 <td style="color:var(--color-text-secondary)">Coop. Verde</td>
-                <td>0,8 kg</td>
                 <td style="color:#1D9E75;font-weight:500">+40</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">14/06</td>
-                <td><span class="type-badge" style="background:#FAEEDA;color:#633806">📦 Papelão</span></td>
                 <td style="color:var(--color-text-secondary)">EcoPonto Central</td>
-                <td>2,1 kg</td>
                 <td style="color:#1D9E75;font-weight:500">+21</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">12/06</td>
-                <td><span class="type-badge" style="background:#EEEDFE;color:#3C3489">🧴 Plástico</span></td>
                 <td style="color:var(--color-text-secondary)">Coop. Norte</td>
-                <td>1,5 kg</td>
                 <td style="color:#1D9E75;font-weight:500">+30</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">10/06</td>
-                <td><span class="type-badge" style="background:#FCEBEB;color:#791F1F">🔋 Pilhas</span></td>
                 <td style="color:var(--color-text-secondary)">Farmácia</td>
-                <td>—</td>
                 <td style="color:#1D9E75;font-weight:500">+25</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">08/06</td>
-                <td><span class="type-badge" style="background:#E6F1FB;color:#0C447C">🍾 Vidro</span></td>
                 <td style="color:var(--color-text-secondary)">EcoPonto Central</td>
-                <td>3,2 kg</td>
                 <td style="color:#1D9E75;font-weight:500">+26</td>
               </tr>
               <tr>
                 <td style="color:var(--color-text-secondary)">05/06</td>
-                <td><span class="type-badge" style="background:#EAF3DE;color:#27500A">📰 Papel</span></td>
                 <td style="color:var(--color-text-secondary)">Escola Estadual</td>
-                <td>1,8 kg</td>
                 <td style="color:#1D9E75;font-weight:500">+18</td>
               </tr>
             </tbody>
@@ -945,309 +843,9 @@ button, input, select { font: inherit; }
         </div>
       </div>
 
-      <!-- EMPRESAS -->
-      <div class="screen" id="screen-empresas">
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-label">Cupons ativos</div><div class="stat-value stat-green">18</div><div class="stat-sub">6 empresas parceiras</div></div>
-          <div class="stat-card"><div class="stat-label">Resgates no mês</div><div class="stat-value">342</div><div class="stat-sub">benefícios utilizados</div></div>
-          <div class="stat-card"><div class="stat-label">Pontos patrocinados</div><div class="stat-value">92k</div><div class="stat-sub">pool de campanhas</div></div>
-          <div class="stat-card"><div class="stat-label">Conversão</div><div class="stat-value" style="color:#185FA5">21%</div><div class="stat-sub">usuários que resgataram</div></div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-ticket" style="font-size:16px;color:#BA7517" aria-hidden="true"></i> Gerenciamento de cupons</div>
-            <div class="field-grid">
-              <div class="field"><label>Empresa</label><input id="coupon-company" value="Mercado Bom Preço" aria-label="Empresa"></div>
-              <div class="field"><label>CNPJ</label><input id="coupon-cnpj" value="12.345.678/0001-90" aria-label="CNPJ"></div>
-              <div class="field"><label>Benefício</label><input id="coupon-title" value="20% de desconto em compras sustentáveis" aria-label="Benefício"></div>
-              <div class="field"><label>Pontos necessários</label><input id="coupon-points" value="300" aria-label="Pontos necessários"></div>
-              <div class="field"><label>Validade</label><input id="coupon-validity" value="30/07/2026" aria-label="Validade"></div>
-              <div class="field"><label>Categoria</label><select id="coupon-category" aria-label="Categoria"><option>Cupons</option><option>Cashback</option><option>Produtos</option><option>Sorteios</option></select></div>
-            </div>
-            <div class="split-actions">
-              <button class="primary-btn" onclick="publishCoupon()"><i class="ti ti-upload" aria-hidden="true"></i> Publicar cupom</button>
-              <button class="secondary-btn" onclick="showToast('📊 Prévia de impacto da campanha calculada.')"><i class="ti ti-chart-bar" aria-hidden="true"></i> Simular campanha</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-chart-line" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Métricas para parceiros</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Campanha “Recicle eletrônicos”</div><div class="list-sub">Eletrônicos recebem 2x pontos durante a semana.</div></div><span class="status-chip ok">ativa</span></div>
-              <div class="list-row"><div><div class="list-main">Cashback via Pix</div><div class="list-sub">500 pontos por R$ 5, com limite mensal por usuário.</div></div><span class="status-chip info">monitorar custo</span></div>
-              <div class="list-row"><div><div class="list-main">Sorteio mensal</div><div class="list-sub">Baixo custo por participação e alta recorrência de engajamento.</div></div><span class="status-chip warn">validar regras</span></div>
-              <div class="list-row"><div><div class="list-main">Dashboard comercial</div><div class="list-sub">Acompanha resgates, cliques, público e volume de material associado.</div></div><span class="status-chip ok">pronto</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="module-grid">
-          <div class="module-card"><div class="module-icon" style="background:#E1F5EE;color:#0F6E56"><i class="ti ti-building-store" aria-hidden="true"></i></div><div class="module-title">Cadastro empresarial</div><div class="module-desc">Nome, CNPJ, e-mail, telefone, responsável e status de aprovação.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#FAEEDA;color:#633806"><i class="ti ti-speakerphone" aria-hidden="true"></i></div><div class="module-title">Campanhas</div><div class="module-desc">Ofertas por material, bairro, escola, nível do usuário ou período sazonal.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#E6F1FB;color:#185FA5"><i class="ti ti-report-analytics" aria-hidden="true"></i></div><div class="module-title">Relatórios de retorno</div><div class="module-desc">Mede uso do benefício sem expor dados pessoais desnecessários.</div></div>
-        </div>
-      </div>
-
-      <!-- COOPERATIVAS -->
-      <div class="screen" id="screen-cooperativas">
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-label">Volume validado</div><div class="stat-value stat-green">2,8 t</div><div class="stat-sub">últimos 30 dias</div></div>
-          <div class="stat-card"><div class="stat-label">Coletas pendentes</div><div class="stat-value" style="color:#BA7517">14</div><div class="stat-sub">aguardando auditoria</div></div>
-          <div class="stat-card"><div class="stat-label">Estações ativas</div><div class="stat-value">9</div><div class="stat-sub">região norte e centro</div></div>
-          <div class="stat-card"><div class="stat-label">Rejeito evitado</div><div class="stat-value" style="color:#185FA5">84%</div><div class="stat-sub">materiais aceitos</div></div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-clipboard-check" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Registrar coleta da cooperativa</div>
-            <div class="field-grid">
-              <div class="field"><label>Cooperativa</label><input id="coop-name" value="Cooperativa Verde Norte" aria-label="Cooperativa"></div>
-              <div class="field"><label>Estação</label><input id="coop-station" value="EST-PR-0042" aria-label="Estação"></div>
-              <div class="field"><label>Material</label><select id="coop-material" aria-label="Material"><option>Alumínio</option><option>Plástico</option><option>Papelão</option><option>Vidro</option><option>Eletrônicos</option></select></div>
-              <div class="field"><label>Peso validado</label><input id="coop-weight" value="18,6 kg" aria-label="Peso validado"></div>
-              <div class="field"><label>Responsável</label><input id="coop-collector" value="COL-VERDE-018" aria-label="Responsável"></div>
-              <div class="field"><label>Status</label><select id="coop-status" aria-label="Status"><option>Aprovada</option><option>Revisar material</option><option>Recusada</option></select></div>
-            </div>
-            <div class="split-actions">
-              <button class="primary-btn" onclick="validateCoopLot()"><i class="ti ti-check" aria-hidden="true"></i> Validar lote</button>
-              <button class="secondary-btn" onclick="showToast('📦 Etiqueta do lote gerada para rastreamento.')"><i class="ti ti-barcode" aria-hidden="true"></i> Gerar etiqueta</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-scale" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Acompanhamento de volume</div>
-            <div class="compact-list">
-              <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Alumínio</span><strong>820 kg</strong></div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:82%"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Plástico</span><strong>610 kg</strong></div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:61%;background:#185FA5"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Papel e papelão</span><strong>940 kg</strong></div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:94%;background:#BA7517"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px"><span>Eletrônicos</span><strong>110 kg</strong></div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:24%;background:#534AB7"></div></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><i class="ti ti-shield-check" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Validações recentes</div>
-          <table class="entity-table">
-            <thead><tr><th>Coleta</th><th>Usuário</th><th>Material</th><th>Peso</th><th>Resultado</th></tr></thead>
-            <tbody id="coop-validations-body">
-              <tr><td>COL-2026-1098</td><td>USR-RAI-000124</td><td>Alumínio</td><td>0,8 kg</td><td><span class="status-chip ok">aprovada</span></td></tr>
-              <tr><td>COL-2026-1102</td><td>USR-RAI-000532</td><td>Plástico</td><td>2,4 kg</td><td><span class="status-chip warn">revisar</span></td></tr>
-              <tr><td>COL-2026-1110</td><td>USR-RAI-000891</td><td>Óleo de cozinha</td><td>5 L</td><td><span class="status-chip ok">aprovada</span></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- PREFEITURAS -->
-      <div class="screen" id="screen-prefeituras">
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-label">Usuários ativos</div><div class="stat-value stat-green">10.482</div><div class="stat-sub">piloto municipal</div></div>
-          <div class="stat-card"><div class="stat-label">Bairros cobertos</div><div class="stat-value">24</div><div class="stat-sub">com ao menos 1 ponto</div></div>
-          <div class="stat-card"><div class="stat-label">Resíduo rastreado</div><div class="stat-value">38,7 t</div><div class="stat-sub">acumulado</div></div>
-          <div class="stat-card"><div class="stat-label">CO₂ evitado</div><div class="stat-value" style="color:#185FA5">27,1 t</div><div class="stat-sub">estimativa ambiental</div></div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-report" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Relatórios públicos</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Impacto ambiental mensal</div><div class="list-sub">Volume por bairro, material, estação e cooperativa.</div></div><button class="secondary-btn" onclick="showToast('📄 Relatório ambiental exportado.')">Emitir</button></div>
-              <div class="list-row"><div><div class="list-main">Indicadores educacionais</div><div class="list-sub">Escolas, universidades e campanhas com maior participação.</div></div><button class="secondary-btn" onclick="showToast('🏫 Relatório educacional exportado.')">Emitir</button></div>
-              <div class="list-row"><div><div class="list-main">Mapa de gargalos</div><div class="list-sub">Regiões com baixa adesão ou pouca oferta de estações.</div></div><button class="secondary-btn" onclick="showToast('🗺️ Mapa de gargalos atualizado.')">Abrir</button></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-building-bank" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Gestão municipal</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Limpeza urbana</div><div class="list-sub">Estimativa de redução de descarte incorreto e priorização de rotas.</div></div><span class="status-chip info">estimativa</span></div>
-              <div class="list-row"><div><div class="list-main">Editais e incubadoras</div><div class="list-sub">Dados de impacto social e ambiental organizados para prestação de contas.</div></div><span class="status-chip ok">compatível</span></div>
-              <div class="list-row"><div><div class="list-main">Transparência</div><div class="list-sub">Relatórios agregados, sem expor CPF, telefone ou e-mail dos usuários.</div></div><span class="status-chip ok">LGPD</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DADOS E IA -->
-      <div class="screen" id="screen-dados">
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-database" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Banco de dados mínimo</div>
-            <table class="entity-table">
-              <thead><tr><th>Entidade</th><th>Campos principais</th></tr></thead>
-              <tbody>
-                <tr><td>Usuários</td><td>id, nome, email, senha, telefone, cpf, pontos, nível, data_criacao</td></tr>
-                <tr><td>Resíduos</td><td>id, nome, categoria, pontos_por_kg, valor_mercado</td></tr>
-                <tr><td>Coletas</td><td>id, usuario_id, residuo_id, peso, data, hora, estacao_id, pontos_gerados</td></tr>
-                <tr><td>Estações</td><td>id, nome, latitude, longitude, endereco, status</td></tr>
-                <tr><td>Recompensas</td><td>id, nome, descricao, pontos_necessarios, empresa_id, validade</td></tr>
-                <tr><td>Empresas</td><td>id, nome, cnpj, email, telefone</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-brain" style="font-size:16px;color:#534AB7" aria-hidden="true"></i> Inteligência artificial prevista</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Identificação por imagem</div><div class="list-sub">Classificação de resíduos para apoiar validação.</div></div><span class="status-chip info">futuro</span></div>
-              <div class="list-row"><div><div class="list-main">Detecção de fraude</div><div class="list-sub">Procura padrões incomuns por usuário, estação, horário e material.</div></div><span class="status-chip warn">risco alto</span></div>
-              <div class="list-row"><div><div class="list-main">Relatórios e insights</div><div class="list-sub">Geração de análises ambientais, campanhas e previsão de demanda.</div></div><span class="status-chip ok">alto valor</span></div>
-              <div class="list-row"><div><div class="list-main">Sugestão de parceiros</div><div class="list-sub">Recomenda empresas por região, público e tipo de recompensa.</div></div><span class="status-chip info">planejado</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="module-grid">
-          <div class="module-card"><div class="module-icon" style="background:#E1F5EE;color:#0F6E56"><i class="ti ti-checklist" aria-hidden="true"></i></div><div class="module-title">Fato</div><div class="module-desc">O sistema registra descarte, pontos, estações, usuários, empresas e recompensas.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#FAEEDA;color:#633806"><i class="ti ti-chart-infographic" aria-hidden="true"></i></div><div class="module-title">Estimativa</div><div class="module-desc">CO₂ evitado, redução de custo e impacto urbano dependem de fatores locais.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#E6F1FB;color:#185FA5"><i class="ti ti-bulb" aria-hidden="true"></i></div><div class="module-title">Hipótese e sugestão</div><div class="module-desc">Campanhas, IA e cashback devem ser testados por piloto antes de escala.</div></div>
-        </div>
-      </div>
-
-      <!-- BACK-END LOCAL -->
-      <div class="screen" id="screen-backend">
-        <div class="card overview-card">
-          <div class="eyebrow">Back-end simulado no navegador</div>
-          <div class="headline">O sistema usa localStorage como banco local e funções JavaScript como API.</div>
-          <div class="body-copy">Não existe servidor Node rodando porque você pediu com localStorage. Tudo que você faz no app é salvo na chave abaixo e continua salvo quando recarrega a página no mesmo navegador.</div>
-          <div class="pill-row">
-            <span class="pill blue"><i class="ti ti-key" aria-hidden="true"></i> recicla_ai_platform_backend_v2</span>
-            <span class="pill green"><i class="ti ti-device-floppy" aria-hidden="true"></i> persistente</span>
-            <span class="pill amber"><i class="ti ti-browser" aria-hidden="true"></i> sem servidor</span>
-          </div>
-        </div>
-
-        <div class="backend-grid">
-          <div class="backend-metric">
-            <i class="ti ti-user-circle" aria-hidden="true"></i>
-            <div class="backend-metric-label">Usuário salvo</div>
-            <div class="backend-metric-value" id="backend-user-count">1</div>
-          </div>
-          <div class="backend-metric">
-            <i class="ti ti-recycle" aria-hidden="true"></i>
-            <div class="backend-metric-label">Coletas</div>
-            <div class="backend-metric-value" id="backend-collections-count">0</div>
-          </div>
-          <div class="backend-metric">
-            <i class="ti ti-gift" aria-hidden="true"></i>
-            <div class="backend-metric-label">Recompensas</div>
-            <div class="backend-metric-value" id="backend-rewards-count">0</div>
-          </div>
-          <div class="backend-metric">
-            <i class="ti ti-bell" aria-hidden="true"></i>
-            <div class="backend-metric-label">Notificações</div>
-            <div class="backend-metric-value" id="backend-notifications-count">0</div>
-          </div>
-        </div>
-
-        <div class="backend-actions">
-          <button class="primary-btn" onclick="seedBackendCollection()"><i class="ti ti-plus" aria-hidden="true"></i> Gerar coleta teste</button>
-          <button class="secondary-btn" onclick="publishCoupon()"><i class="ti ti-ticket" aria-hidden="true"></i> Criar cupom teste</button>
-          <button class="secondary-btn" onclick="exportLocalData()"><i class="ti ti-download" aria-hidden="true"></i> Exportar JSON</button>
-          <button class="secondary-btn" onclick="resetDemoData()"><i class="ti ti-refresh" aria-hidden="true"></i> Resetar banco</button>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-table" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Tabelas locais</div>
-            <table class="entity-table">
-              <thead><tr><th>Tabela</th><th>Registros</th><th>Funções</th></tr></thead>
-              <tbody id="backend-tables-body"></tbody>
-            </table>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-api" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Funções do back-end</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">confirmColeta()</div><div class="list-sub">Cria coleta, soma pontos, salva e atualiza dashboard.</div></div><span class="status-chip ok">create</span></div>
-              <div class="list-row"><div><div class="list-main">saveProfile()</div><div class="list-sub">Atualiza usuário salvo no localStorage.</div></div><span class="status-chip info">update</span></div>
-              <div class="list-row"><div><div class="list-main">redeemReward()</div><div class="list-sub">Debita pontos e registra resgate.</div></div><span class="status-chip warn">transaction</span></div>
-              <div class="list-row"><div><div class="list-main">publishCoupon()</div><div class="list-sub">Cria recompensa/cupom de empresa parceira.</div></div><span class="status-chip ok">create</span></div>
-              <div class="list-row"><div><div class="list-main">renderAll()</div><div class="list-sub">Lê o banco local e redesenha todas as telas.</div></div><span class="status-chip info">read</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><i class="ti ti-file-code" style="font-size:16px;color:#BA7517" aria-hidden="true"></i> Dados atuais salvos no navegador</div>
-          <pre class="json-preview" id="backend-json-preview">{}</pre>
-        </div>
-      </div>
-
-      <!-- ARQUITETURA -->
-      <div class="screen" id="screen-arquitetura">
-        <div class="module-grid">
-          <div class="module-card"><div class="module-icon" style="background:#E1F5EE;color:#0F6E56"><i class="ti ti-browser" aria-hidden="true"></i></div><div class="module-title">Frontend</div><div class="module-desc">HTML5, CSS3, JavaScript, React e Tailwind para a interface web.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#E6F1FB;color:#185FA5"><i class="ti ti-server" aria-hidden="true"></i></div><div class="module-title">Backend</div><div class="module-desc">Node.js e Express com autenticação JWT e APIs para coletas e recompensas.</div></div>
-          <div class="module-card"><div class="module-icon" style="background:#FAEEDA;color:#633806"><i class="ti ti-database" aria-hidden="true"></i></div><div class="module-title">Dados e cloud</div><div class="module-desc">PostgreSQL, Firebase, AWS, Amazon S3 e Google Maps API.</div></div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-growth" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Escalabilidade</div>
-            <div class="timeline">
-              <div class="timeline-item"><div class="timeline-scale">1.000</div><div class="timeline-text">Piloto com banco gerenciado, filas simples e monitoramento de custo por coleta.</div></div>
-              <div class="timeline-item"><div class="timeline-scale">10.000</div><div class="timeline-text">Separação de leitura/escrita, cache para ranking e painéis agregados.</div></div>
-              <div class="timeline-item"><div class="timeline-scale">100.000</div><div class="timeline-text">Filas assíncronas para pontuação, relatórios e integração com parceiros.</div></div>
-              <div class="timeline-item"><div class="timeline-scale">1.000.000</div><div class="timeline-text">Arquitetura modular, observabilidade, auditoria antifraude e governança de dados.</div></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-alert-triangle" style="font-size:16px;color:#BA7517" aria-hidden="true"></i> Custos, riscos e gargalos</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Google Maps API e cloud</div><div class="list-sub">Crescem com uso; precisam de cota, cache e monitoramento.</div></div><span class="status-chip warn">custo variável</span></div>
-              <div class="list-row"><div><div class="list-main">Cashback</div><div class="list-sub">Exige teto por usuário e patrocínio para não virar prejuízo.</div></div><span class="status-chip warn">financeiro</span></div>
-              <div class="list-row"><div><div class="list-main">Fraude em descarte</div><div class="list-sub">Mitigar com validação por cooperativa, sensores e IA futura.</div></div><span class="status-chip info">operacional</span></div>
-              <div class="list-row"><div><div class="list-main">Adoção popular</div><div class="list-sub">Depende de pontos próximos, recompensas úteis e campanhas locais.</div></div><span class="status-chip ok">tratável</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title"><i class="ti ti-clipboard-text" style="font-size:16px;color:#185FA5" aria-hidden="true"></i> Formato de decisões do projeto</div>
-          <div class="pill-row" style="margin-top:0">
-            <span class="pill green">Objetivo</span>
-            <span class="pill blue">Impacto</span>
-            <span class="pill amber">Implementação técnica</span>
-            <span class="pill red">Benefícios</span>
-            <span class="pill">Custos</span>
-            <span class="pill">Riscos</span>
-            <span class="pill">Escalabilidade</span>
-            <span class="pill">Melhorias futuras</span>
-            <span class="pill">Compatibilidade</span>
-            <span class="pill">Conclusão</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- BANCA -->
-      <div class="screen" id="screen-banca">
-        <div class="card overview-card">
-          <div class="eyebrow">Modo banca avaliadora</div>
-          <div class="headline">O Recicla Aí é avaliado por inovação, impacto, viabilidade e execução técnica.</div>
-          <div class="body-copy">As notas abaixo são uma simulação interna para orientar melhorias do protótipo antes de feiras científicas, editais, incubadoras e investidores.</div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <div class="card-title"><i class="ti ti-school" style="font-size:16px;color:#1D9E75" aria-hidden="true"></i> Notas por critério</div>
-            <div class="score-row"><div class="score-name">Inovação</div><div class="score-track"><div class="score-fill" style="width:86%"></div></div><div class="score-value">8,6</div></div>
-            <div class="score-row"><div class="score-name">Impacto social</div><div class="score-track"><div class="score-fill" style="width:91%"></div></div><div class="score-value">9,1</div></div>
-            <div class="score-row"><div class="score-name">Impacto ambiental</div><div class="score-track"><div class="score-fill" style="width:88%"></div></div><div class="score-value">8,8</div></div>
-            <div class="score-row"><div class="score-name">Viabilidade econômica</div><div class="score-track"><div class="score-fill" style="width:76%;background:#BA7517"></div></div><div class="score-value">7,6</div></div>
-            <div class="score-row"><div class="score-name">Clareza dos objetivos</div><div class="score-track"><div class="score-fill" style="width:90%"></div></div><div class="score-value">9,0</div></div>
-            <div class="score-row"><div class="score-name">Escalabilidade</div><div class="score-track"><div class="score-fill" style="width:82%;background:#185FA5"></div></div><div class="score-value">8,2</div></div>
-            <div class="score-row"><div class="score-name">Sustentabilidade</div><div class="score-track"><div class="score-fill" style="width:89%"></div></div><div class="score-value">8,9</div></div>
-            <div class="score-row"><div class="score-name">Execução técnica</div><div class="score-track"><div class="score-fill" style="width:80%;background:#185FA5"></div></div><div class="score-value">8,0</div></div>
-          </div>
-          <div class="card">
-            <div class="card-title"><i class="ti ti-list-check" style="font-size:16px;color:#BA7517" aria-hidden="true"></i> Como melhorar</div>
-            <div class="compact-list">
-              <div class="list-row"><div><div class="list-main">Validar custos reais</div><div class="list-sub">Separar cashback patrocinado, cupons sem custo e benefícios municipais.</div></div><span class="status-chip warn">prioridade</span></div>
-              <div class="list-row"><div><div class="list-main">Provar adesão</div><div class="list-sub">Rodar piloto com escola, cooperativa e empresa local por 30 dias.</div></div><span class="status-chip ok">alto impacto</span></div>
-              <div class="list-row"><div><div class="list-main">Medir sustentabilidade</div><div class="list-sub">Usar fatores ambientais auditáveis e separar fato de estimativa.</div></div><span class="status-chip info">métricas</span></div>
-              <div class="list-row"><div><div class="list-main">Fechar arquitetura</div><div class="list-sub">Transformar protótipo em React com API Node, PostgreSQL e autenticação.</div></div><span class="status-chip ok">próximo passo</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    
+     
+     
     </div>
   </div>
 </div>
@@ -1320,11 +918,7 @@ const defaultState = {
   ],
   redemptions: [],
   coupons: [],
-  validations: [
-    { id: 'COL-2026-1098', userId: 'USR-RAI-000124', material: 'Alumínio', weight: '0,8 kg', result: 'aprovada' },
-    { id: 'COL-2026-1102', userId: 'USR-RAI-000532', material: 'Plástico', weight: '2,4 kg', result: 'revisar' },
-    { id: 'COL-2026-1110', userId: 'USR-RAI-000891', material: 'Óleo de cozinha', weight: '5 L', result: 'aprovada' }
-  ],
+ 
   notifications: [
     { text: 'Você subiu para o nível Prata. Continue reciclando para alcançar Ouro.', time: 'Hoje, 10:00', read: false },
     { text: 'Coleta de alumínio confirmada. +40 pontos adicionados à sua carteira.', time: 'Hoje, 09:45', read: false },
