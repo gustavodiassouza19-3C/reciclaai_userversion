@@ -1,0 +1,23 @@
+{
+  "name": "reciclaai_userversion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavodiassouza19-3C/reciclaai_userversion.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavodiassouza19-3C/reciclaai_userversion/issues"
+  },
+  "homepage": "https://github.com/gustavodiassouza19-3C/reciclaai_userversion#readme",
+  "dependencies": {
+    "@shadcn/ui": "^0.0.4"
+  }
+}

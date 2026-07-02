@@ -1235,6 +1235,53 @@ const titles = {
 };
 const STORAGE_KEY = 'recicla_ai_platform_backend_v2';
 
+// Definição dos metadados dos materiais (Cores, Ícones e Unidades)
+const materialMeta = {
+  'Plástico': { points: 20, unit: 'kg', icon: 'ti ti-bottle', bg: '#EAF5F1', color: '#1D9E75' },
+  'Papelão': { points: 10, unit: 'kg', icon: 'ti ti-box', bg: '#FDF6ED', color: '#D97706' },
+  'Alumínio': { points: 50, unit: 'kg', icon: 'ti ti-beer', bg: '#EEF2F6', color: '#4B5563' },
+  'Vidro': { points: 15, unit: 'kg', icon: 'ti ti-glass-full', bg: '#F5F3FF', color: '#7C3AED' },
+  'Pilhas': { points: 25, unit: 'un', icon: 'ti ti-battery-charging', bg: '#FEF2F2', color: '#DC2626' },
+  'Eletrônicos': { points: 40, unit: 'kg', icon: 'ti ti-device-cpu', bg: '#EFF6FF', color: '#2563EB' },
+  'Papel': { points: 10, unit: 'kg', icon: 'ti ti-file-text', bg: '#F0FDF4', color: '#16A34A' },
+  'Outros': { points: 5, unit: 'kg', icon: 'ti ti-recycle', bg: '#F4F4F5', color: '#71717A' }
+};
+
+function redeemReward(id) {
+  const reward = state.rewards.find(item => item.id === id);
+  if (!reward) return;
+  
+  // 1. Verifica se tem pontos
+  if (state.user.points < reward.points) {
+    showToast(`⚠️ Saldo insuficiente para ${reward.name}.`);
+    return;
+  }
+  
+  // 2. Subtrai os pontos do objeto global
+  state.user.points -= reward.points;
+  state.user.totalRedeemed += reward.points;
+  
+  // 3. Adiciona ao histórico e notificações
+  state.redemptions.unshift({ 
+    id: 'RES-' + Date.now(), 
+    rewardId: id, 
+    name: reward.name, 
+    points: reward.points, 
+    date: new Date().toISOString() 
+  });
+  
+  state.notifications.unshift({ 
+    text: `Recompensa resgatada: ${reward.name}. -${reward.points} pontos.`, 
+    time: 'Agora', 
+    read: false 
+  });
+  
+  // 4. Salva no localStorage e força o HTML a se atualizar
+  saveState();
+  renderAll(); 
+  showToast(`✅ ${reward.name} resgatado! ${reward.points} pontos debitados.`);
+}
+
 const defaultState = {
   version: 2,
   baselineKg: 3,
@@ -1269,7 +1316,7 @@ const defaultState = {
   ],
   redemptions: [],
   coupons: [],
- 
+  validations: [], // Adicionado para evitar erro na função validateCoopLot
   notifications: [
     { text: 'Você subiu para o nível Prata. Continue reciclando para alcançar Ouro.', time: 'Hoje, 10:00', read: false },
     { text: 'Coleta de alumínio confirmada. +40 pontos adicionados à sua carteira.', time: 'Hoje, 09:45', read: false },
@@ -1375,9 +1422,11 @@ function showScreen(id, el) {
 }
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
+  if (t) {
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
 }
 const mockLacresDB = {
   'LCR-8A4F': { material: 'Plástico', weight: 1.5, stationId: 'EST-PR-0042', collectorId: 'COL-VERDE-018', location: 'Cooperativa Verde Norte' },
@@ -1385,14 +1434,14 @@ const mockLacresDB = {
   'LCR-3C7X': { material: 'Eletrônicos', weight: 2.0, stationId: 'EST-PR-0033', collectorId: 'COL-PARCEIRO-002', location: 'Ponto Eletrônico Parceiro' }
 };
 
-// Facilita o clique na demo
 function preencherLacre(code) {
-  document.getElementById('lacre-input').value = code;
+  const inputEl = document.getElementById('lacre-input');
+  if (inputEl) inputEl.value = code;
 }
 
-// Processa o código consumindo os dados previamente atrelados
 function processarLacre() {
   const inputEl = document.getElementById('lacre-input');
+  if (!inputEl) return;
   const code = inputEl.value.trim().toUpperCase();
 
   if (!code) {
@@ -1407,7 +1456,6 @@ function processarLacre() {
     return;
   }
 
-  // Integridade: Verifica se o lacre já foi processado no localStorage
   const jaProcessado = state.collections.find(c => c.lacreCode === code);
   if (jaProcessado) {
     showToast('⚠️ Este lacre já foi validado e os pontos já foram resgatados.');
@@ -1415,15 +1463,13 @@ function processarLacre() {
     return;
   }
 
-  // Cálculos dinâmicos
   const meta = materialInfo(lacreData.material);
   const points = Math.round(meta.points * lacreData.weight);
   const now = new Date();
 
-  // Construção do objeto de coleta
   const collection = {
     id: 'COL-' + now.getFullYear() + '-' + String(Date.now()).slice(-6),
-    lacreCode: code, // Salvando a chave estrangeira
+    lacreCode: code,
     material: lacreData.material,
     weight: lacreData.weight,
     unit: meta.unit,
@@ -1436,7 +1482,6 @@ function processarLacre() {
     status: 'validada'
   };
 
-  // Atualiza o estado da aplicação
   state.collections.unshift(collection);
   state.user.points += points;
   state.user.totalEarned += points;
@@ -1446,15 +1491,12 @@ function processarLacre() {
     read: false 
   });
 
-  // Persiste no LocalStorage e renderiza tudo
   saveState();
   renderAll();
 
-  // Limpeza e feedback visual
   inputEl.value = '';
   showToast(`✅ Carga validada: ${lacreData.material}, ${formatDecimal(lacreData.weight)} ${meta.unit}. +${points} pontos.`);
 
-  // Retorna para o dashboard automaticamente para mostrar a carteira atualizada
   setTimeout(() => showScreen('dashboard', null), 1600);
 }
 function saveProfile() {
@@ -1466,21 +1508,7 @@ function saveProfile() {
   renderAll();
   showToast('Perfil salvo no localStorage.');
 }
-function redeemReward(id) {
-  const reward = state.rewards.find(item => item.id === id);
-  if (!reward) return;
-  if (state.user.points < reward.points) {
-    showToast(`Saldo insuficiente para ${reward.name}.`);
-    return;
-  }
-  state.user.points -= reward.points;
-  state.user.totalRedeemed += reward.points;
-  state.redemptions.unshift({ id: 'RES-' + Date.now(), rewardId: id, name: reward.name, points: reward.points, date: new Date().toISOString() });
-  state.notifications.unshift({ text: `Recompensa resgatada: ${reward.name}. -${reward.points} pontos.`, time: 'Agora', read: false });
-  saveState();
-  renderAll();
-  showToast(`${reward.name} resgatado. ${reward.points} pontos debitados.`);
-}
+ 
 function publishCoupon() {
   const title = document.getElementById('coupon-title').value.trim() || 'Novo benefício';
   const points = Math.max(10, Math.round(parseLocaleNumber(document.getElementById('coupon-points').value)));
@@ -1699,7 +1727,7 @@ function renderNotifications() {
 function renderCoopValidations() {
   const body = document.getElementById('coop-validations-body');
   if (!body) return;
-  body.innerHTML = state.validations.slice(0, 8).map(item => {
+  body.innerHTML = (state.validations || []).slice(0, 8).map(item => {
     const ok = item.result.includes('aprov');
     const warn = item.result.includes('revis');
     const chip = ok ? 'ok' : warn ? 'warn' : 'info';
@@ -1726,7 +1754,7 @@ function renderBackendPanel() {
       ['rewards', state.rewards.length, 'renderRewards, redeemReward'],
       ['redemptions', state.redemptions.length, 'redeemReward'],
       ['coupons', state.coupons.length, 'publishCoupon'],
-      ['validations', state.validations.length, 'validateCoopLot'],
+      ['validations', (state.validations || []).length, 'validateCoopLot'],
       ['notifications', state.notifications.length, 'renderNotifications']
     ];
     tableBody.innerHTML = rows.map(([name, count, funcs]) => `
@@ -1747,7 +1775,7 @@ function renderBackendPanel() {
         rewards: state.rewards.length,
         redemptions: state.redemptions.length,
         coupons: state.coupons.length,
-        validations: state.validations.length,
+        validations: (state.validations || []).length,
         notifications: state.notifications.length
       },
       latestCollections: sortedCollections().slice(0, 5),
@@ -1870,8 +1898,6 @@ function drawCharts() {
   drawDonutChart();
 }
 document.addEventListener('DOMContentLoaded', () => {
-  const firstMaterial = document.querySelector('.material-btn[data-material="Plástico"]');
-  if (firstMaterial) selectMat(firstMaterial);
   renderAll();
   window.addEventListener('resize', drawCharts);
 });
